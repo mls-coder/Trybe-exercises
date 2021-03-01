@@ -42,5 +42,3 @@ function trybe(student) {
 
     return developerPerson;
 };
-
-console.log(trybe(person));
