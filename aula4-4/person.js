@@ -29,3 +29,18 @@ for (value in person) {
 for (keyValue in person) {
     console.log(keyValue, person[keyValue]);
 }
+
+//functions
+
+function trybe(student) {
+    let developerPerson = student;
+
+    developerPerson.birthCity = 'BH';
+    developerPerson.age = 27;
+
+    developerPerson.trybe = true;
+
+    return developerPerson;
+};
+
+console.log(trybe(person));
