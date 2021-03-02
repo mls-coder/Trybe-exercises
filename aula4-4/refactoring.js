@@ -22,3 +22,23 @@ function getArray(character) {
 }
 
 console.log(getArray('*'));
+
+//mega sena
+
+let maxValue = 60;
+
+function randomNumbers(maxValue) {
+    return Math.ceil(Math.random() * maxValue);
+}
+
+function gameGenerator(maxValue) {
+    let game = [];
+
+    for (let index = 0; index < 6; index += 1) {
+        game.push(randomNumbers(maxValue));
+    }
+
+    return game;
+}
+
+console.log(gameGenerator(maxValue));
