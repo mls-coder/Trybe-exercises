@@ -26,3 +26,6 @@ document.getElementById('tittle').innerText = 'Seletores 5.1'
 //selecionando pela classe
 let getClass = document.getElementsByClassName('parag');
 console.log(getClass);
+
+//mudando propriedades
+document.getElementByClass('parag').style = 'color = red';
