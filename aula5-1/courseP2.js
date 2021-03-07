@@ -18,4 +18,11 @@ console.log(getInnerText);
 let content = document.getElementById('aprendizados').innerText;
 console.log(content);
 
-let changeContent = document.getElementById('aprendizados').innerText = 'Conteúdo trocado';
+document.getElementById('aprendizados').innerText = 'Conteúdo trocado';
+
+//alterando o tittle
+document.getElementById('tittle').innerText = 'Seletores 5.1'
+
+//selecionando pela classe
+let getClass = document.getElementsByClassName('parag');
+console.log(getClass);
