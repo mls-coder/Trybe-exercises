@@ -29,7 +29,7 @@ function testingScope(escopo) {
 
   testingScope(true);
 
-const testScope = (escopo) => {
+  const testScope = (escopo) => {
     if (escopo) {
         const ifScope = 'Não devo ser utilizada fora do meu escopo (if)';
         console.log(`${ifScope} ótimo, fui utilizada no escopo !`);
@@ -40,3 +40,13 @@ const testScope = (escopo) => {
 }
 
 testScope(false);
+
+
+//ternary operator
+
+const testScope = (escopo) => {
+    escopo ? 'true' : 'false';
+    console.log(`${escopo} yay ternary operator!`);
+}
+
+testScope(true);
