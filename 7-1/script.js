@@ -29,7 +29,7 @@ function testingScope(escopo) {
 
   testingScope(true);
 
-  const testScope = (escopo) => {
+  const testScope = escopo => {
     if (escopo) {
         const ifScope = 'Não devo ser utilizada fora do meu escopo (if)';
         console.log(`${ifScope} ótimo, fui utilizada no escopo !`);
@@ -44,9 +44,57 @@ testScope(false);
 
 //ternary operator
 
-const testScope = (escopo) => {
+const testScope = escopo => {
     escopo ? 'true' : 'false';
     console.log(`${escopo} yay ternary operator!`);
 }
 
 testScope(true);
+
+
+// Copie o código abaixo e faça uma função que retorne o array oddsAndEvens em ordem crescente.
+
+//Utilize template literals para que a chamada console.log(oddsAndEvens); retorne "Os números 2,3,4,7,10,13 se encontram ordenados de forma crescente!".
+//Bônus (opcional): tente fazer o mesmo exercício utilizando o método array.sort() . Spoiler: É possível realizar uma função que ordene qualquer array de números. 
+
+// const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+// const sortArray = array => {
+//   let lowest = array[0];
+//   let result = [];
+//   console.log(`tamanho ${array.length}`);
+//   for (let j = 0; j < array.length; j++) {
+//     for (let i = 1; i < array.length; i++) {
+//       if (array[i] < lowest) {
+//         lowest = array[i];
+//       }
+//       let index = array.indexOf(array[i]);
+//       array.splice(index,1);
+//     }
+//     console.log(lowest);
+//   }
+//   return result;
+// }
+
+// console.log(sortArray(oddsAndEvens));
+
+
+// Crie uma função que receba um número e retorne seu fatorial.
+
+// Na matemática, o fatorial de um número não negativo N , com a notação N! , é o produto de todos os inteiros menores ou iguais a N . Exemplo: 4! = 4 * 3 * 2 * 1 = 24.
+
+// const fat = n => {
+//   (n === 0) ? 1 : (n * fat(n - 1));
+// }
+
+// console.log(fat(4));
+
+const fat = n => {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * fat(n - 1);
+  }
+}
+
+console.log(fat(6))
