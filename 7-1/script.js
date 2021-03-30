@@ -83,13 +83,11 @@ testScope(true);
 
 // Na matemática, o fatorial de um número não negativo N , com a notação N! , é o produto de todos os inteiros menores ou iguais a N . Exemplo: 4! = 4 * 3 * 2 * 1 = 24.
 
-// const fat = n => {
-//   (n === 0) ? 1 : (n * fat(n - 1));
-// }
+const fat = n => (n === 0) ? 1 : (n * fat(n - 1));
 
-// console.log(fat(4));
+console.log(fat(6));
 
-const fat = n => {
+const fatorial = n => {
   if (n === 0) {
     return 1;
   } else {
@@ -97,4 +95,4 @@ const fat = n => {
   }
 }
 
-console.log(fat(6))
+console.log(fatorial(6))
