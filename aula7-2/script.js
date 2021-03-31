@@ -140,13 +140,14 @@ const lesson3 = {
 };
 
 // Crie uma função para adicionar o turno da manhã na lesson2. Essa função deve possuir três parâmetros, sendo eles: o objeto a ser modificado, a chave que deverá ser adicionada e o valor dela. 
-const modLesson2 = (lesson, turno, value) => {
-    lesson.turno = value;
-}
-
+const modLesson2 = (lesson, turno, value) => lesson.turno = value;
 modLesson2(lesson2, 'turno', 'manhã');
+
 console.log(lesson2);
 
 //Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro. 
 const objKeys = obj => console.log(Object.keys(obj));
 objKeys(lesson2);
+
+//Crie uma função para mostrar o tamanho de um objeto. 
+const objSize = obj => console.log(Object.keys(obj).length);
