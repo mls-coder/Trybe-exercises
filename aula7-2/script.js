@@ -148,3 +148,5 @@ modLesson2(lesson2, 'turno', 'manhã');
 console.log(lesson2);
 
 //Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro. 
+const objKeys = obj => console.log(Object.keys(obj));
+objKeys(lesson2);
