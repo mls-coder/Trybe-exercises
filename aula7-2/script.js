@@ -165,3 +165,10 @@ console.log(allLessons);
 //Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas. 
 const numStudents = obj => obj.lesson1.numeroEstudantes + obj.lesson2.numeroEstudantes + obj.lesson3.numeroEstudantes;
 console.log(numStudents(allLessons));
+
+//Crie uma função que obtenha o valor da chave de acordo com a sua posição no objeto.
+const getValuesByNumber = (obj, index) => Object.values(obj)[index];
+
+console.log(getValuesByNumber(lesson3, 1));
+
+//Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. 
