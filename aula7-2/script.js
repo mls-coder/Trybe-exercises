@@ -133,10 +133,10 @@ const lesson2 = {
 };
 
 const lesson3 = {
-    materia: 'Matemática',
-    numeroEstudantes: 10,
-    professor: 'Maria Clara',
-    turno: 'noite',
+  materia: 'Matemática',
+  numeroEstudantes: 10,
+  professor: 'Maria Clara',
+  turno: 'noite',
 };
 
 // Crie uma função para adicionar o turno da manhã na lesson2. Essa função deve possuir três parâmetros, sendo eles: o objeto a ser modificado, a chave que deverá ser adicionada e o valor dela. 
@@ -172,3 +172,30 @@ const getValuesByNumber = (obj, index) => Object.values(obj)[index];
 console.log(getValuesByNumber(lesson3, 1));
 
 //Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. 
+
+const lesson3 = {
+  materia: 'Matemática',
+  numeroEstudantes: 10,
+  professor: 'Maria Clara',
+  turno: 'noite',
+};
+
+// const arr = Object.entries(lesson3);
+// console.log(arr);
+// for (let i in arr) {
+//   console.log(arr[i]);
+// }
+
+const verify = (obj, key, value) => {
+  const arrayEntries = Object.entries(obj);
+  let ver = false;
+  for (let i in arrayEntries) {
+    if (arrayEntries[i][0] === key && arrayEntries[i][1] === value) {
+      ver = true;
+    }
+  }
+  return ver;
+}
+
+console.log(verify(lesson3, 'turno', 'noite'));
+
