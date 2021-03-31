@@ -36,8 +36,15 @@ const books = {
 };
 
 const author = {
-    aurhor: 'Douglas Adams'
+    author: 'Douglas Adams'
 };
 
 Object.assign(books, author);
 console.log(books); //books recebeu as entradas de author
+
+const booksAuthor = Object.assign({}, books);
+console.log(booksAuthor);
+Object.assign(booksAuthor, author);
+console.log(booksAuthor);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
