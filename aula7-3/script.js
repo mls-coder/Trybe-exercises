@@ -79,3 +79,30 @@ const sum = (a,b) => {
 assert.strictEqual(sum(4, 5), 9);
 assert.strictEqual(sum(0, 0), 0);
 assert.strictEqual(sum(4, '5'), 9);
+
+
+// A função myRemove(arr, item) recebe um array arr e retorna uma cópia desse array sem o elemento item caso ele exista no array
+// Verifique se a chamada myRemove([1, 2, 3, 4], 3) retorna o array esperado
+// Verifique se a chamada myRemove([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
+// Verifique se o array passado por parâmetro não sofreu alterações
+// Verifique se a chamada myRemove([1, 2, 3, 4], 5) retorna o array esperado
+const assert = require('assert');
+
+const myRemove = (arr, value) => {
+    const arrFinal = [];
+    if (typeof(arr) === 'object') {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== value) arrFinal.push(arr[i]);
+        }
+    } else throw new Error('first parameter must be object');
+    return arrFinal;
+}
+
+assert.deepStrictEqual(myRemove([1,2,3,4], 3), [1,2,4]);
+assert.notDeepStrictEqual(myRemove([1,2,3,4], 3), [1,2,3,4]);
+
+const arr = [2,3,8,6,5];
+myRemove(arr, 6);
+assert.deepStrictEqual(arr, [2,3,8,6,5]);
+
+assert.deepStrictEqual(myRemove([1,2,3,4], 5), [1,2,3,4]);
