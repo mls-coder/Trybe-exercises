@@ -149,3 +149,20 @@ assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4], 5), [1,2,3,4]);
 // Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
 // Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
 
+const assert = require('assert');
+
+const myFizzBuzz = num => {
+    if (typeof(num) !== 'number') return false;
+    else {
+        if ((num % 3 === 0) && (num % 5 === 0)) return 'fizzbuzz';
+        else if (num % 3 === 0) return 'fizz';
+        else if (num % 5 === 0) return 'buzz';
+        else return num;
+    }
+}
+
+assert.strictEqual(myFizzBuzz(30), 'fizzbuzz');
+assert.strictEqual(myFizzBuzz(9), 'fizz');
+assert.strictEqual(myFizzBuzz(20), 'buzz');
+assert.strictEqual(myFizzBuzz(7), 7);
+assert.strictEqual(myFizzBuzz('25'), false);
