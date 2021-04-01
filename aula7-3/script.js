@@ -106,3 +106,46 @@ myRemove(arr, 6);
 assert.deepStrictEqual(arr, [2,3,8,6,5]);
 
 assert.deepStrictEqual(myRemove([1,2,3,4], 5), [1,2,3,4]);
+
+
+
+// A função myRemoveWithoutCopy(arr, item) recebe um array arr e retorna o próprio array sem o elemento item caso ele exista no array
+// Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) retorna o array esperado
+// Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
+// Faça uma chamada para a função myRemoveWithoutCopy e verifique se o array passado por parâmetro sofreu alterações
+// Verifique se a chamada myRemoveWithoutCopy([1, 2, 3, 4], 5) retorna o array esperado
+
+const assert = require('assert');
+
+const myRemoveWithoutCopy = (arr, item) => {
+    if (typeof(arr) !== 'object') {
+        throw new Error('first parameter must be object');
+    } else {
+        for (let i = 0; i < arr.length; i ++) {
+            if (arr[i] === item) {
+              arr.splice(i, 1);
+              i --;
+            }
+        }
+    }
+  
+    return arr;
+}
+
+assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4], 3), [1,2,4]);
+assert.notDeepStrictEqual(myRemoveWithoutCopy([1,2,3,4], 3), [1,2,3,4]);
+
+const arr = [1,2,5,6,3,8];
+myRemoveWithoutCopy(arr, 6);
+assert.notDeepStrictEqual(arr, [1,2,5,6,3,8]);
+
+assert.deepStrictEqual(myRemoveWithoutCopy([1,2,3,4], 5), [1,2,3,4]);
+
+
+// A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" se o número for divisível por 3 e 5 , retorna "fizz" se for divisível apenas por 3 , retorna "buzz" se divisível apenas por 5 , retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso num não seja um número
+// Faça uma chamada com um número divisível por 3 e 5 e verifique se o retorno é o esperado
+// Faça uma chamada com um número divisível por 3 e verifique se o retorno é o esperado
+// Faça uma chamada com um número divisível por 5 e verifique se o retorno é o esperado
+// Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
+// Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
+
