@@ -91,5 +91,48 @@ assert.strictEqual(output, expected);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////                 Escreva testes para verificar a consistência das funções                                  //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const assert = require('assert');
 
+const greetPeople = people => {
+    const arr = [];
+    for (let person in people) {
+      arr.push(`Hello ${people[person]}`);
+    }
+    return arr;
+};
 
+assert.strictEqual(typeof(greetPeople), 'function');
+const parameter = ['Irina', 'Ashleigh', 'Elsa'];
+const result = ['Hello Irina', 'Hello Ashleigh', 'Hello Elsa'];
+assert.deepStrictEqual(greetPeople(parameter), result);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const removeVowels = word => {
+    const characters = word.split('');
+    let results = '';
+    let vowel = 1;
+    for (let index = 0; index < characters.length; index += 1) {
+        if (
+        characters[index] === 'a' ||
+        characters[index] === 'o' ||
+        characters[index] === 'i' ||
+        characters[index] === 'e' ||
+        characters[index] === 'u'
+      ) {
+        results += vowel;
+        vowel++;
+      } else {
+        results += characters[index];
+      }
+    }
+    return results;
+  };
+  
+  const assert = require('assert');
+  assert.strictEqual(typeof(removeVowels), 'function');
+  const parameter = 'Dayane';
+  const result = 'D1y2n3';
+  assert.strictEqual(removeVowels(parameter), result);
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////
