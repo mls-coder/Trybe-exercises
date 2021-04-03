@@ -4,5 +4,5 @@ document.getElementsByClassName('emergency-tasks')[0].style.backgroundColor = '#
 document.getElementsByClassName('no-emergency-tasks')[0].style.backgroundColor = '#ffdb4d';
 document.getElementsByTagName('h3')[0].style.backgroundColor = 'black';
 document.querySelectorAll('h3')[1].style.backgroundColor = 'black';
-document.getElementsByTagName('h3')[2].style.backgroundColor = 'black';
-document.querySelectorAll('h3')[3].style.backgroundColor = 'black';
+document.getElementsByTagName('h3')[2].style.backgroundColor = 'coral';
+document.querySelectorAll('h3')[3].style.backgroundColor = 'coral';
