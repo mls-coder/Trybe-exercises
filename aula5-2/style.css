@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title-container {
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(57, 129, 236);
+}
+
+#title {
+    color: #d7eff5;
+    font-family: serif;
+}
+
+.week-container {
+    padding: 20px;
+    margin-top: 10px;
+    background-color: rgb(187, 182, 182);
+}
+
+.week {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.week li {
+    list-style: none;
+}
