@@ -7,6 +7,17 @@ const week = () => {
         dayItem.innerHTML = days[i];
         week.appendChild(dayItem);
     }
-}
+};
+week();
 
-window.onload = week();
+const month = () => {
+    const month = document.querySelector('.month');
+
+    for (let i = 1; i <= 30; i++) {
+        let day = document.createElement('li');
+        day.innerHTML = [i];
+        month.appendChild(day);
+    }
+};
+month();
+

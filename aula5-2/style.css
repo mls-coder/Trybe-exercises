@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+li {
+    list-style: none;
+    width: 14%;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
 .title-container {
     padding: 40px;
     text-align: center;
@@ -25,6 +32,14 @@
     justify-content: space-evenly;
 }
 
-.week li {
-    list-style: none;
+.month-container {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: rgb(240, 230, 230);
+}
+
+.month {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
