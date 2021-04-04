@@ -64,5 +64,22 @@ console.log(checkAnswer(myAnswer2)(myAnswer1));
 
 // Quando a resposta for correta a contagem sobe 1 ponto, quando for incorreta desce 0.5 pontos, e quando não houver resposta ("N.A") não altera-se a contagem.
 
+const rightAnswers = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const studentAnswers = ['A', 'C', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'C'];
 
+const checkAnswer = (arrAnswer, arrStudent) => {
+    let sum = 0;
+    for (let i = 0; i < arrAnswer.length; i++) {
+        if (arrAnswer[i] === arrStudent[i]) sum++;
+        else if (arrStudent[i] === 'N.A') sum = sum;
+        else sum = sum - 0.5;
+    }
+    return sum;
+};
+
+const finalCount = (action, arr1, arr2) => {
+    return `O estudante acertou ${Math.round(checkAnswer(arr1, arr2))} questões.`;
+}
+
+console.log(finalCount(checkAnswer, rightAnswers, studentAnswers));
 
