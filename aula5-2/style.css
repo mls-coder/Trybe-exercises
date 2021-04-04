@@ -43,3 +43,9 @@ li {
     flex-wrap: wrap;
     text-align: center;
 }
+
+.btn-container {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
