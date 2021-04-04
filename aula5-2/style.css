@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    width: 14%;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.title-container {
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(57, 129, 236);
+}
+
+#title {
+    color: #d7eff5;
+    font-family: serif;
+}
+
+.week-container {
+    padding: 20px;
+    margin-top: 10px;
+    background-color: rgb(187, 182, 182);
+}
+
+.week {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.month-container {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: rgb(240, 230, 230);
+}
+
+.month {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.btn-container {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
