@@ -19,3 +19,34 @@ console.log(newEmployees(employee));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Desenvolva uma HOF que retorna o resultado de um sorteio. Esta HOF irá gerar um número aleatório entre 1 e 5 recebendo como parâmetros o número apostado e uma função que checa se o número apostado é igual ao número sorteado. O retorno da sua HOF deve ser uma string (Ex: "Tente novamente" ou "Parabéns você ganhou"). 
+
+// const checkNumber = (bet, winner) => {
+//     if (bet === winner) return true;
+//     return false;
+// };
+
+// const prizeDraw = (action, bet) => {
+
+//     const winner = Math.floor((Math.random() * 5) + 1);
+//     console.log(winner);
+//     if (action(bet, winner)) return 'Parabéns! Vc ganhou!';
+//     return 'Tente novamente';
+// };
+
+const checkNumber = (bet, winner) => bet === winner;
+
+const prizeDraw = (action, bet) => {
+    const winner = Math.floor((Math.random() * 5) + 1);
+    console.log(winner);
+    return action(bet, winner) ? 'Parabéns! Vc ganhou!' : 'Tente novamente';
+}
+
+console.log(prizeDraw(checkNumber, 3));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Crie uma HOF utilizando o conceito de currying . Passe como parâmetros a resposta correta (Ex: Gabarito) para uma pergunta e uma resposta a ser validada (Ex: Resposta de uma pessoa). Sua HOF deve checar se a resposta enviada pela pessoa usuária é correta. Se for, a função retorna true , se não for, a função retorna false .
+
+// A validação da resposta não deve ser case sensitive.
+// Deve ser possível chamar a HOF criada de forma encadeada (Ex: checarResposta('Gabarito')('Teste'))
