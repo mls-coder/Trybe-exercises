@@ -22,7 +22,6 @@ const dragon = {
 
 const battleMembers = { mage, warrior, dragon };
 
-
 // Crie uma função que retorna o dano do dragão.
 // O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo strength (dano máximo).
 
@@ -30,30 +29,29 @@ const dragonAttack = dragonObj => {
     const maxDamage = dragonObj.strength;
     return Math.floor(Math.random() * (maxDamage - 15) + 15); 
 };
-console.log(`Dragon attack: ${dragonAttack(dragon)}.`);
+//console.log(`Dragon attack: ${dragonAttack(dragon)}.`);
 
 // Crie uma função que retorna o dano causado pelo warrior .
 // O dano será um número aleatório entre o valor do atributo strength (dano mínimo) e o valor de strength * weaponDmg (dano máximo).
-const warriorAttack = warrior => {
-    const minDamage = warrior.strength;
-    const maxDamage = warrior.strength * warrior.weaponDmg;
+const warriorAttack = warriorObj => {
+    const minDamage = warriorObj.strength;
+    const maxDamage = warriorObj.strength * warriorObj.weaponDmg;
     return Math.floor(Math.random() * (maxDamage - minDamage) + minDamage);
 };
-console.log(`Warrior attack: ${warriorAttack(warrior)}.`);
+//console.log(`Warrior attack: ${warriorAttack(warrior)}.`);
 
 // Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
 // O dano será um número aleatório entre o valor do atributo intelligence (dano mínimo) e o valor de intelligence * 2 (dano máximo).
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
-const mageAttack = mage => {
-    const mageMana = mage.mana;
-    if (mageMana < 15) return { damage: 'Não possui mana suficiente!', manaConsumed: 0 };
+const mageAttack = mageObj => {
+    if (mageObj.mana < 15) return { damage: 'Não possui mana suficiente!', manaConsumed: 0 };
     else {
-        const minDamage = mage.intelligence;
+        const minDamage = mageObj.intelligence;
         return { damage: Math.floor(Math.random() * (minDamage * 2 - minDamage) + minDamage), manaConsumed: 15 };
     }
 };
-console.log(mageAttack(mage));
+//console.log(mageAttack(mage));
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -65,18 +63,29 @@ console.log(mageAttack(mage));
 
 const gameActions = {
     warriorTurn: warriorAttack => {
-        const attack = warriorAttack();
+        const attack = warriorAttack(warrior);
         warrior.damage = attack;
         dragon.healthPoints -= attack;
     },
     mageTurn: mageAttack => {
-        const attack = mageAttack();
-        const damage = attack.damage;
-        mage.damage = damage;
-        const manaSpent = attack.manaConsumed;
-        mage.mana -= manaSpent;
-        dragon.healthPoints -= damage;
+        const stats = mageAttack(mage);
+        const damageTurn = stats.damage;
+        const manaTurn = stats.mana;
+        mage.damage = damageTurn;
+        mage.mana -= manaTurn;
+        dragon.healthPoints -= damageTurn;
     },
-  };
+    dragonTurn: dragonAttack => {
+        const dragonDamage = dragonAttack(dragon);
+        mage.healthPoints -= dragonDamage;
+        warrior.healthPoints -= dragonDamage;
+        dragon.damage = dragonDamage;
+    },
+    turn: () => battleMembers,
+};
 
-  console.log(gameActions.mageTurn(mageAttack));
+gameActions.warriorTurn(warriorAttack);
+gameActions.mageTurn(mageAttack);
+gameActions.dragonTurn(dragonAttack);
+console.log(gameActions.turn());
+ 
