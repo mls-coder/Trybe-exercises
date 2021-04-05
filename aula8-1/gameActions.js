@@ -46,10 +46,37 @@ console.log(`Warrior attack: ${warriorAttack(warrior)}.`);
 // A mana consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
 
 const mageAttack = mage => {
-    if (mage.mana < 15) return { damage: 'Não possui mana suficiente!', manaConsumed: 0 };
+    const mageMana = mage.mana;
+    if (mageMana < 15) return { damage: 'Não possui mana suficiente!', manaConsumed: 0 };
     else {
         const minDamage = mage.intelligence;
         return { damage: Math.floor(Math.random() * (minDamage * 2 - minDamage) + minDamage), manaConsumed: 15 };
     }
 };
-console.log(mageAttack(mage), mage.mana);
+console.log(mageAttack(mage));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Crie a primeira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem warrior . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem warrior e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor da chave damage do warrior .
+// Crie a segunda HOF que compõe o objeto gameActions . Ela será a função que simula o turno do personagem mage . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo personagem mage e atualizará os healthPoints do monstro dragon . Além disto ela também deve atualizar o valor das chaves damage e mana do mage.
+// Crie a terceira HOF que compõe o objeto gameActions . Ela será a função que simula o turno do monstro dragon . Esta HOF receberá como parâmetro a função que calcula o dano deferido pelo monstro dragon e atualizará os healthPoints dos personagens mage e warrior . Além disto ela também deve atualizar o valor da chave damage do monstro.
+// Adicione ao objeto gameActions uma função de primeira classe que retorna o objeto battleMembers atualizado e faça um console.log para visualizar o resultado final do turno.
+
+
+const gameActions = {
+    warriorTurn: warriorAttack => {
+        const attack = warriorAttack();
+        warrior.damage = attack;
+        dragon.healthPoints -= attack;
+    },
+    mageTurn: mageAttack => {
+        const attack = mageAttack();
+        const damage = attack.damage;
+        mage.damage = damage;
+        const manaSpent = attack.manaConsumed;
+        mage.mana -= manaSpent;
+        dragon.healthPoints -= damage;
+    },
+  };
+
+  console.log(gameActions.mageTurn(mageAttack));
