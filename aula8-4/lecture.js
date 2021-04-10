@@ -88,3 +88,35 @@ console.log(reduce(players, (newArr, curPlayer) => {
     newArr[curPlayer.fullName] = curPlayer.email;
     return newArr;
 }, {}));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const reduce = (arr, action, initialValue) => {
+    let acc, index;
+    if (initialValue === undefined) {
+        acc = arr[0];
+        index = 1;
+    } else {
+        acc = initialValue;
+        index = 0;
+    }
+    for (let i = index; i < arr.length; i++) {
+        let cur = arr[i];
+        // console.log(`accumulator = ${acc} current = ${cur}`);
+        acc = action(acc, cur);
+    }
+    return acc;
+};
+
+const players = [
+    {fullName: 'Cristiane Rozeira de Sousa Silva', email: 'criscris@futebol.br'},
+    {fullName: 'Marta Vieira da Silve', email: 'rainhamarta@futebol.br'},
+    {fullName: 'Ronaldo de Assis Moreira', email: 'bruxo@futebol.br'},
+    {fullName: 'Ronaldo Luís Nazário de Lima', email: 'cortedocascao@futebol.br'}
+];
+const numbers = [1,2,3,4,5];
+console.log(reduce(players, (acc, cur) => {
+    acc[cur.fullName] = cur.email;
+    return acc;
+}, {}));
+console.log(reduce(numbers, (acc, cur) => acc + cur));
