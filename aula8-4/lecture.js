@@ -19,3 +19,72 @@ const epicPhrase = epic.reduce((acc, cur) => acc + cur);
 console.log(epicPhrase);
 const epicPhrase2 = epic.reduce((acc, cur) => `${acc} ${cur}`);
 console.log(epicPhrase2);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const players = [
+    {fullName: 'Cristiane Rozeira de Sousa Silva', email: 'criscris@futebol.br'},
+    {fullName: 'Marta Vieira da Silve', email: 'rainhamarta@futebol.br'},
+    {fullName: 'Ronaldo de Assis Moreira', email: 'bruxo@futebol.br'},
+    {fullName: 'Ronaldo Luís Nazário de Lima', email: 'cortedocascao@futebol.br'}
+];
+
+const newObj = arr => arr.reduce((acc, cur) => {
+    acc[cur.fullName] = cur.email;
+    return acc;
+}, {});
+
+
+console.table(newObj(players));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//sem initialValue
+const reduce = (arr, action) => {
+    let acc = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        let cur = arr[i];
+        console.log(`accumulator = ${acc} current = ${cur}`);
+        acc = action(acc, cur);
+    }
+    return acc;
+};
+const numbers = [1,2,3,4,5];
+console.log(reduce(numbers, (accumulator, current) => accumulator + current));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// com initialValue
+
+const reduce = (arr, action, initialValue) => {
+    let acc = initialValue;
+    for (let i = 0; i < arr.length; i++) {
+        let cur = arr[i];
+        console.log(`accumulator = ${acc} current = ${cur}`);
+        acc = action(acc, cur);
+    }
+    return acc;
+};
+const numbers = [1,2,3,4,5];
+console.log(reduce(numbers, (accumulator, current) => accumulator + current, 0));
+////////////////
+
+const reduce = (arr, action, initialValue) => {
+    let acc = initialValue;
+    for (let i = 0; i < arr.length; i++) {
+        let cur = arr[i];
+        // console.log(`accumulator = ${acc} current = ${cur}`);
+        acc = action(acc, cur);
+    }
+    return acc;
+};
+
+const players = [
+    {fullName: 'Cristiane Rozeira de Sousa Silva', email: 'criscris@futebol.br'},
+    {fullName: 'Marta Vieira da Silve', email: 'rainhamarta@futebol.br'},
+    {fullName: 'Ronaldo de Assis Moreira', email: 'bruxo@futebol.br'},
+    {fullName: 'Ronaldo Luís Nazário de Lima', email: 'cortedocascao@futebol.br'}
+];
+
+console.log(reduce(players, (newArr, curPlayer) => {
+    newArr[curPlayer.fullName] = curPlayer.email;
+    return newArr;
+}, {}));
