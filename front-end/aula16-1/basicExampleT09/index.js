@@ -12,8 +12,10 @@ const reducer = (state = 0, action) => {
     }
 }
 
+const store = Redux.createStore(reducer);
+
 const actionIncrement = () => {
-    const btn = document.getElementById('increase');
+    const btn = document.getElementById('increment');
     btn.addEventListener('click', () => {
         const action = { type: INCREMENT }
         store.dispatch(action);
@@ -22,7 +24,7 @@ const actionIncrement = () => {
 };
 
 const actionDecrement = () => {
-    const btn = document.getElementById('decrease');
+    const btn = document.getElementById('decrement');
     btn.addEventListener('click', () => {
         const action = { type: DECREMENT }
         store.dispatch(action);
@@ -32,7 +34,7 @@ const actionDecrement = () => {
 };
 
 const actionIncrementBy10 = () => {
-    const btn = document.getElementById('increaseBy10');
+    const btn = document.getElementById('incrementBy10');
     btn.addEventListener('click', () => {
         const action = { type:  }
         store.dispatch(action);
@@ -40,10 +42,13 @@ const actionIncrementBy10 = () => {
     });
 };
 
+store.subscribe(() => {
+    const span = document.getElementById('value');
+    span.innerText = store.getState();
+});
+
 window.onload = () => {
     actionIncrement();
     actionDecrement();
     actionIncrementBy10();
 }
-
-const store = Redux.createStore(reducer);
