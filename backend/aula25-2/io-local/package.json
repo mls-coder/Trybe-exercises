@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "read": "node readFile.js"
+    "read": "node readFile.js",
+    "write": "node writeFile.js"
   },
   "author": "",
   "license": "ISC",
