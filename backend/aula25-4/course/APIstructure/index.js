@@ -12,4 +12,12 @@ const drinks = [
 
 app.get('/drinks', (_req, res) => res.status(200).json(drinks));
 
+app.get('/drinks/:id', (req, res) => {
+    const { id } = req.params;
+    const drink = drinks.find((d) => d.id === Number(id));
+
+    if(!drinks || !drink) return res.status(404).json({message:'Drink not found!'});
+    res.status(200).json(drink);
+});
+
 app.listen(3000, () => console.log('Aplicação ouvindo na porta 3000'));
