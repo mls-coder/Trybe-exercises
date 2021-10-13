@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.get('/', (_req, res) => res.status(200).send('Use /drinks or /drinks/{id}'));
+
 const drinks = [
     { id: 1, name: 'Refrigerante Lata', price: 5.0 },
     { id: 2, name: 'Refrigerante 600ml', price: 8.0 },
@@ -18,6 +20,14 @@ app.get('/drinks/:id', (req, res) => {
 
     if(!drinks || !drink) return res.status(404).json({message:'Drink not found!'});
     res.status(200).json(drink);
+});
+
+app.get('/drinks/search', (req, res) => {
+    const { name, maxPrice } = req.query;
+    const filteredDrinks = drinks.filter((drink) => drink.name.includes(name) && drink.price < Number(maxPrice));
+
+    if(!drinks || !filteredDrinks) return res.status(404).json({message:'Drink not found!'});
+    res.status(200).json(filteredDrinks);
 });
 
 app.listen(3000, () => console.log('Aplicação ouvindo na porta 3000'));
